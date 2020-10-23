@@ -1,0 +1,22 @@
+CREATE TABLE "movil" (
+	"id_movil" serial NOT NULL,
+	"tipo" VARCHAR(255) NOT NULL,
+	CONSTRAINT "movil_pk" PRIMARY KEY ("id_movil")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE "ubicacion" (
+	"posx" VARCHAR(255) NOT NULL,
+	"posy" VARCHAR(255) NOT NULL,
+	"id_movil" integer NOT NULL
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+
+ALTER TABLE "ubicacion" ADD CONSTRAINT "ubicacion_fk0" FOREIGN KEY ("id_movil") REFERENCES "movil"("id_movil");
